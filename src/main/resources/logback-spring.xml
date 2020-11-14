@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="AwsLambda" class="org.jlib.cloud.aws.lambda.logback.AwsLambdaAppender">
+        <encoder type="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] &lt;%-36X{AWSRequestId:-request-id-not-set-by-lambda-runtime}&gt;
+                %-5level %logger{10} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- LOG everything at INFO level -->
+    <root level="info">
+        <appender-ref ref="AwsLambda"/>
+    </root>
+
+    <!-- LOG "sinanaj.aldo*" at TRACE level -->
+    <logger name="sinanaj.aldo" level="trace" additivity="false">
+        <appender-ref ref="AwsLambda"/>
+    </logger>
+
+</configuration>
