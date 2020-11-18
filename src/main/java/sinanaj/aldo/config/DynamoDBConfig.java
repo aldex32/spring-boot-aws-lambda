@@ -1,4 +1,4 @@
-package sinanaj.aldo;
+package sinanaj.aldo.config;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import sinanaj.aldo.repository.UserRepository;
 
 @Configuration
 @EnableDynamoDBRepositories(basePackageClasses = UserRepository.class)
